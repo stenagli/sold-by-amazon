@@ -17,21 +17,11 @@
   <body>
     <h2>Amazon Sold By Amazon Search</h2>
 
-    <form id="amazonForm">
-      <input type="text" id="search" placeholder="Type search term" />
-      <br>
+    <form action="https://www.amazon.com/s" method="GET">
+      <input type="text" name="k" placeholder="Search Amazon for Sold by Amazon items" required>
+      <input type="hidden" name="rh" value="p_6:ATVPDKIKX0DER">
       <button type="submit">Search</button>
     </form>
-
-    <script>
-      document.getElementById('amazonForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const query = encodeURIComponent(document.getElementById('search').value.trim());
-        if (!query) return alert('Please enter a search term.');
-        const url = `https://www.amazon.com/s?k=${query}&rh=p_6:ATVPDKIKX0DER`;
-        window.location.href = url;
-      });
-    </script>
 
   </body>
 </html>
