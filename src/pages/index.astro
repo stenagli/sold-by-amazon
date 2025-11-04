@@ -10,18 +10,92 @@
     <meta name="generator" content={Astro.generator} />
     <title>Sold By Amazon Search</title>
     <style>
-      body { font-family: sans-serif; padding: 2em; text-align: center; }
-      input, button { font-size: 1.2em; padding: 0.5em; margin: 0.5em 0; width: 90%; }
+      body {
+        font-family: "Open Sans", system-ui, -apple-system, Roboto, sans-serif;
+        background: #f3f3f3;
+        color: #111;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 1.5em;
+      }
+
+      input,
+      button,
+      form {
+        box-sizing: border-box;
+      }
+
+      form {
+        background: white;
+        padding: 2em;
+        border-radius: 0.75em;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 400px;
+        border-top: 4px solid #f59b00; /* orange accent */
+      }
+
+      input[type="text"] {
+        font-size: 1em;
+        padding: 0.7em;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 0.3em;
+        margin-bottom: 1em;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+
+      input[type="text"]:focus {
+        border-color: #1e73be;
+        box-shadow: 0 0 0 3px rgba(30,115,190,0.2);
+        outline: none;
+      }
+
+      button {
+        font-size: 1em;
+        padding: 0.7em;
+        width: 100%;
+        background-color: #f59b00;
+        color: #111;
+        border: none;
+        border-radius: 0.3em;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.2s, transform 0.1s;
+      }
+
+      button:hover { background-color: #d48806; }
+      button:active { transform: scale(0.98); }
+
+      footer {
+        margin-top: 2em;
+        font-size: 0.85em;
+        color: #666;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body { background: #0f1111; color: #eee; }
+        form { background: #1a1a1a; border-top-color: #f59b00; }
+        input { background: #111; color: #eee; border-color: #333; }
+        button { background-color: #f59b00; color: #111; }
+        button:hover { background-color: #d48806; }
+      }
     </style>
   </head>
   <body>
-    <h2>Amazon Sold By Amazon Search</h2>
-
     <form action="https://www.amazon.com/s" method="GET">
       <input type="text" name="k" placeholder="Search Amazon for Sold by Amazon items" required>
       <input type="hidden" name="rh" value="p_6:ATVPDKIKX0DER">
       <button type="submit">Search</button>
     </form>
+
+    <footer>
+      Not affiliated with Amazon.com
+    </footer>
 
   </body>
 </html>
