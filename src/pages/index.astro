@@ -3,14 +3,35 @@
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Sold By Amazon Search</title>
+    <style>
+      body { font-family: sans-serif; padding: 2em; text-align: center; }
+      input, button { font-size: 1.2em; padding: 0.5em; margin: 0.5em 0; width: 90%; }
+    </style>
+  </head>
+  <body>
+    <h2>Amazon Sold By Amazon Search</h2>
+
+    <form id="amazonForm">
+      <input type="text" id="search" placeholder="Type search term" />
+      <br>
+      <button type="submit">Search</button>
+    </form>
+
+    <script>
+      document.getElementById('amazonForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const query = encodeURIComponent(document.getElementById('search').value.trim());
+        if (!query) return alert('Please enter a search term.');
+        const url = `https://www.amazon.com/s?k=${query}&rh=p_6:ATVPDKIKX0DER`;
+        window.location.href = url;
+      });
+    </script>
+
+  </body>
 </html>
